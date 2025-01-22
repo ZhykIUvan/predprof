@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сообщить о поломке</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #e67e22; /* Основной оранжевый цвет */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            margin: 0;
+        }
+
+        .dashboard {
+            display: flex;
+            width: 90%;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        aside {
+            background-color: #f8c471;
+            padding: 20px;
+            border-radius: 8px;
+            width: 20%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        aside h2 {
+            margin-top: 0;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            margin-bottom: 10px;
+        }
+
+        aside ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        aside ul li a.active {
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        main {
+            flex-grow: 1;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            margin-top: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input, form textarea, form button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        form button {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационная панель -->
+    <header>
+        <div class="logo">Сообщить о поломке</div>
+        <nav>
+            <a href="index.html">Выйти</a>
+        </nav>
+    </header>
+
+    <!-- Панель пользователя -->
+    <section class="dashboard">
+        <aside>
+            <h2>Меню</h2>
+            <ul>
+                <li><a href="proverka2.html">Доступный инвентарь</a></li>
+                <li><a href="zayavka.html">Мои заявки</a></li>
+                <li><a>Сообщить о поломке</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <h2>Сообщить о поломке</h2>
+            <p>Пожалуйста, заполните форму ниже, чтобы сообщить о проблеме.</p>
+
+            <form action="#" method="POST">
+                <label for="item">Название предмета</label>
+                <input type="text" id="item" name="item" placeholder="Введите название предмета" required>
+
+                <label for="description">Описание проблемы</label>
+                <textarea id="description" name="description" placeholder="Опишите проблему" rows="5" required></textarea>
+
+                <label for="date">Дата обнаружения</label>
+                <input type="date" id="date" name="date" required>
+
+                <button type="submit">Отправить</button>
+            </form>
+        </main>
+    </section>
+
+</body>
+</html>

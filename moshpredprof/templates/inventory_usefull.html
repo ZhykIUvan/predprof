@@ -1,0 +1,28 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Используемый инвентарь{% endblock %}
+{% block panel %}Используемый инвентарь{% endblock %}
+
+{% block main %}
+    {% for name in inv_usefull.keys() %}
+        <details>
+            <summary>{{ name }} ({{ inv_usefull[name]['count'] }} шт.)</summary>
+            {% for one in inv_usefull[name]['things'] %}
+                <p>ID - {{ one['thing']['db_id'] }}, использует - {{ one['user_name'] }}</p>
+            {% endfor %}
+        </details>
+    {% endfor %}
+    {{ null_usefull_ }}
+{% endblock %}
+{% block menu %}
+<li><a href="{{ url_for('admin', user_login=user['db_login']) }}">Главная</a></li>
+<li><details>
+  <summary>Инвентарь</summary>
+  <p><a href="{{ url_for('inventory_all', user_login=user['db_login']) }}">Весь</a></p>
+  <p><a href="{{ url_for('inventory_free', user_login=user['db_login']) }}">Доступный</a></p>
+  <p><a href="{{ url_for('inventory_broken', user_login=user['db_login']) }}">Сломаный</a></p>
+</details></li>
+<li><a href="{{ url_for('show_users', user_login=user['db_login']) }}">Пользователи</a></li>
+<li><a href="{{ url_for('bought_plan') }}">План закупок</a></li>
+<li><a href="{{ url_for('reports') }}">Отчёты</a></li>
+{% endblock %}
