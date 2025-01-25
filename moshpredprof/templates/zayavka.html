@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои заявки</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #e67e22; /* Основной оранжевый цвет */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            margin: 0;
+        }
+
+        .dashboard {
+            display: flex;
+            width: 90%;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        aside {
+            background-color: #f8c471;
+            padding: 20px;
+            border-radius: 8px;
+            width: 20%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        aside h2 {
+            margin-top: 0;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            margin-bottom: 10px;
+        }
+
+        aside ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        aside ul li a.active {
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        main {
+            flex-grow: 1;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table thead {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        table tbody tr:hover {
+            background-color: #fbeee0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационная панель -->
+    <header>
+        <div class="logo">Мои заявки</div>
+        <nav>
+            <a href="index.html">Выйти</a>
+        </nav>
+    </header>
+
+    <!-- Панель пользователя -->
+    <section class="dashboard">
+        <aside>
+            <h2>Меню</h2>
+            <ul>
+                <li><a href="proverka2.html">Доступный инвентарь</a></li>
+                <li><a>Мои заявки</a></li>
+                <li><a href="report_issue.html">Сообщить о поломке</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <h2>Ваши заявки</h2>
+            <p>Здесь вы можете просмотреть и управлять вашими заявками.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Номер заявки</th>
+                        <th>Дата</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>15.01.2025</td>
+                        <td>Ожидает подтверждения</td>
+                        <td><a href="#">Просмотр</a> | <a href="#">Отменить</a></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>14.01.2025</td>
+                        <td>В процессе</td>
+                        <td><a href="#">Просмотр</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </section>
+
+</body>
+</html>
