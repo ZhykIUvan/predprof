@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>План Закупок и Отчётности</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        body {
+            background-color: #fdf2e9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Шапка */
+        header {
+            background-color: #e67e22;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header .logo {
+            margin: 0;
+        }
+        /* Контент */
+        .dashboard {
+            display: flex;
+            width: 90%;
+            margin: 20px auto;
+            gap: 20px;
+        }
+        /* Меню */
+        aside {
+            background-color: #f8c471;
+            padding: 20px;
+            border-radius: 8px;
+            width: 20%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        aside h2 {
+            margin-top: 0;
+        }
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+        aside ul li {
+            margin-bottom: 10px;
+        }
+        aside ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        aside ul li a:hover {
+            text-decoration: underline;
+        }
+        aside ul li a.active {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        /* Основной контент */
+        main {
+            flex-grow: 1;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        main h2 {
+            margin-top: 0;
+            color: #e67e22;
+        }
+        main p {
+            font-size: 16px;
+            color: #333;
+        }
+        .inventory {
+            margin-top: 20px;
+        }
+        .inventory-controls {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .inventory-item {
+            margin-bottom: 20px;
+            cursor: pointer;
+            color: #e67e22;
+        }
+        .inventory-item:hover {
+            text-decoration: underline;
+        }
+        .inventory-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        /* Форма для отчётов */
+        .report-form {
+            margin-top: 30px;
+            background-color: #fef5e7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .report-form h3 {
+            margin-top: 0;
+            color: #e67e22;
+        }
+        .report-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .report-form input,
+        .report-form textarea,
+        .report-form button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .report-form button {
+            background-color: #e67e22;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .report-form button:hover {
+            background-color: #d35400;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const inventoryItems = document.querySelectorAll(".inventory-item");
+            const infoBox = document.querySelector(".inventory-info");
+            const inventorySearch = document.getElementById("inventory-search");
+
+            inventoryItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    const name = item.dataset.name;
+                    const quantity = item.dataset.quantity;
+                    infoBox.textContent = `Вы выбрали "${name}". Остаток на складе: ${quantity}`;
+                });
+            });
+
+            inventorySearch.addEventListener("input", (e) => {
+                const filter = e.target.value.toLowerCase();
+                inventoryItems.forEach(item => {
+                    const name = item.textContent.toLowerCase();
+                    item.style.display = name.includes(filter) ? "block" : "none";
+                });
+            });
+
+            const reportForm = document.querySelector('.report-form form');
+            const reports = [];
+
+            reportForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const title = document.getElementById('report-title').value;
+                const description = document.getElementById('report-description').value;
+                reports.push({ title, description });
+
+                alert(`Отчёт успешно отправлен!\nЗаголовок: ${title}\nОписание: ${description}`);
+                console.log("Список отчётов:", reports);
+                reportForm.reset();
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Панель навигации -->
+    <header>
+        <div class="logo">План Закупок и Отчётности</div>
+        <nav>
+            <a href="index.html">Выйти</a>
+        </nav>
+    </header>
+
+    <!-- Панель пользователя -->
+    <section class="dashboard">
+        <aside>
+            <h2>Меню</h2>
+            <ul>
+                <li><a href="user.html">Главная</a></li>
+                <li><a href="purchase_plan.html">План закупок</a></li>
+                <li><a href="reports.html">Отчёты</a></li>
+                <li><a href="feedback.html">Обратная связь</a></li>
+            </ul>
+        </aside>
+        <main>
+            <h2>Добро пожаловать в раздел планирования</h2>
+            <p>Выберите элемент из списка, чтобы узнать остаток.</p>
+
+            <!-- Контролы для фильтрации -->
+            <div class="inventory-controls">
+                <input type="text" id="inventory-search" placeholder="Поиск по инвентарю...">
+            </div>
+
+            <!-- Инвентарь -->
+            <div class="inventory">
+                <div class="inventory-item" data-name="Компьютеры" data-quantity="25">Компьютеры</div>
+                <div class="inventory-item" data-name="Принтеры" data-quantity="15">Принтеры</div>
+                <div class="inventory-item" data-name="Стулья офисные" data-quantity="50">Стулья офисные</div>
+            </div>
+            <div class="inventory-info">
+                <!-- Информация об остатке будет выводиться здесь -->
+            </div>
+
+            <!-- Форма для отчётов -->
+            <div class="report-form">
+                <h3>Отчёт от пользователя</h3>
+                <form>
+                    <label for="report-title">Заголовок:</label>
+                    <input type="text" id="report-title" name="report-title" placeholder="Введите заголовок отчёта">
+
+                    <label for="report-description">Описание:</label>
+                    <textarea id="report-description" name="report-description" rows="5" placeholder="Опишите проблему или предложите улучшение"></textarea>
+
+                    <button type="submit">Отправить отчёт</button>
+                </form>
+            </div>
+        </main>
+    </section>
+</body>
+</html>

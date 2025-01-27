@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уведомления</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #e67e22;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            margin: 0;
+        }
+
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            gap: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .message {
+            background-color: #f9e5d8;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 75%;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background-color: #fddbc3;
+        }
+
+        .message.admin {
+            align-self: flex-start;
+        }
+
+        .input-container {
+            display: flex;
+            padding: 10px;
+            gap: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .input-container input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .input-container button {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .input-container button:hover {
+            background-color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационная панель -->
+    <header>
+        <div class="logo">Уведомления</div>
+        <nav>
+            <a href="index.html">Выйти</a>
+        </nav>
+    </header>
+
+    <!-- Панель пользователя -->
+    <section class="dashboard">
+        <div class="message-container">
+            <div class="message admin">Добрый день! Чем мы можем помочь?</div>
+            <div class="message user">Здравствуйте! Я заметил проблему с цветами на странице.</div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" placeholder="Напишите сообщение..." required>
+            <button>Отправить</button>
+        </div>
+    </section>
+
+</body>
+</html>

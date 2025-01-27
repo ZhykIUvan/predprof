@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Шапка */
+        header {
+            background-color: #e67e22;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            margin: 0;
+        }
+
+        /* Панель администратора */
+        .dashboard {
+            display: flex;
+            width: 90%;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        aside {
+            background-color: #f8c471;
+            padding: 20px;
+            border-radius: 8px;
+            width: 20%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        aside h2 {
+            margin-top: 0;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            margin-bottom: 10px;
+        }
+
+        aside ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        aside ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex-grow: 1;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            margin-top: 0;
+            color: #e67e22;
+        }
+
+        main p {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационная панель -->
+    <header>
+        <div class="logo">Панель администратора</div>
+        <nav>
+            <a href="index.html">Выйти</a>
+        </nav>
+    </header>
+
+    <!-- Панель администратора -->
+    <section class="dashboard">
+        <aside>
+            <h2>Меню</h2>
+            <ul>
+                <li><a href="proverka2.html">Доступный инвентарь</a></li>
+                <li><a href="report_issue.html">Сообщить о поломке</a></li>
+            </ul>
+        </aside>
+        <main>
+            <h2>Добро пожаловать, администратор!</h2>
+            <p>Выберите раздел в меню для управления системой.</p>
+        </main>
+    </section>
+
+</body>
+</html>
