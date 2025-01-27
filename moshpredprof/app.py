@@ -63,6 +63,7 @@ init_db()
 
 
 # -------------- Вход и регистрация --------------
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     global is_logged
