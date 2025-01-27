@@ -18,16 +18,85 @@
         }
 
         header {
-            background-color: #e67e22; /* Основной оранжевый цвет */
+            background-color: #e67e22;
             color: white;
             padding: 20px;
             text-align: center;
             width: 100%;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         header .logo {
             margin: 0;
+        }
+
+        header .notification {
+            position: absolute;
+            top: 15px;
+            right: 70px;
+            background: transparent;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 300ms;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header .notification:hover {
+            background: rgba(170, 170, 170, 0.062);
+        }
+
+        header .notification::before {
+            content: "1";
+            color: white;
+            font-size: 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header .bell {
+            border: 2.17px solid white;
+            border-radius: 10px 10px 0 0;
+            width: 15px;
+            height: 17px;
+            background: transparent;
+            display: block;
+            position: relative;
+            top: -3px;
+        }
+
+        header .bell::before,
+        header .bell::after {
+            content: "";
+            background: white;
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 2.17px;
+        }
+
+        header .bell::before {
+            top: 100%;
+            width: 20px;
+        }
+
+        header .bell::after {
+            top: calc(100% + 4px);
+            width: 7px;
         }
 
         .dashboard {
@@ -118,6 +187,10 @@
         <nav>
             <a href="index.html">Выйти</a>
         </nav>
+        <button class="notification">
+            <span class="bell"> </span>
+        </button>
+        
     </header>
 
     <!-- Панель пользователя -->

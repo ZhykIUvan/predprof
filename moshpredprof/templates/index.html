@@ -4,7 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Управление спортивным инвентарем</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Шапка */
+        header {
+            background-color: #e67e22;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            margin: 0;
+        }
+
+        /* Контент */
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #e67e22;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        form input[type="submit"] {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #d35400;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background-color: #d35400;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,22 +108,17 @@
 
     <!-- Контент -->
     <section class="main">
-
-        <h1>Добро пожаловать в систему управления спортивным инвентарем</h1>
-
-        <p>Вход:</p>
+        <h1>Войдите в аккаунт</h1>
+        
         <form method="POST">
-        Логин <input type="text" name="login">
-        Пароль <input type="text" name="password">
-        <button type="submit">Войти</button>
+            Логин <input type="text" name="login">
+            Пароль <input type="text" name="password">
+            <input type="submit">
         </form>
-        <p>{{ error }}</p>
 
-        <p>Регистрация</p>
-        <a href="{{ url_for('register', user_type='admin') }}">для админа</a>
-        <br>
-        <a href="{{ url_for('register', user_type='just_user') }}">для пользователя</a>
-
+        <div class="buttons">
+            <button onclick="window.location.href='register.html'">Регистрация</button>
+        </div>
     </section>
 
 </body>
